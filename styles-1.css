@@ -1,0 +1,415 @@
+/* =========================================================
+   PALETA (hexadecimal y rgba)
+   ========================================================= */
+:root {
+  --negro:        #0D0F0C;
+  --verde-tactico:#232C1E;
+  --dorado:       #C9A227;
+  --cian:         #38C6D9;
+  --rojo:         #B3261E;
+  --gris-claro:   #D8D8D2;
+  --gris-medio:   #8B8F82;
+}
+
+/* =========================================================
+   MODELO DE CAJA GLOBAL
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Barlow', Arial, sans-serif;
+  background-color: var(--negro);
+  color: var(--gris-claro);
+  line-height: 1.6em;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   HEADER — camuflaje simulado con degradados + marco HUD
+   ========================================================= */
+header {
+  position: relative;
+  background-color: var(--negro);
+  background-image:
+    radial-gradient(ellipse 220px 140px at 12% 30%, rgba(35,44,30,0.9), transparent 70%),
+    radial-gradient(ellipse 260px 160px at 85% 70%, rgba(35,44,30,0.8), transparent 70%),
+    radial-gradient(ellipse 180px 120px at 55% 15%, rgba(51,58,42,0.7), transparent 70%),
+    linear-gradient(180deg, #0A0B08 0%, #12140F 100%);
+  background-repeat: no-repeat;
+
+  padding: 3.5rem 5vw;
+  text-align: center;
+  border-bottom: 3px solid var(--dorado);
+}
+
+.hud-marco {
+  position: relative;
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+}
+
+.hud-marco::before,
+.hud-marco::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 3px solid var(--cian);
+}
+
+.hud-marco::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hud-marco::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+header .eyebrow {
+  color: var(--cian);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+header h1 {
+  color: var(--gris-claro);
+  font-size: clamp(2.8rem, 7vw, 4.6rem);
+  letter-spacing: 0.12em;
+  margin: 0.3rem 0;
+  text-shadow: 0 0 18px rgba(201,162,39,0.35);
+}
+
+header .subtitle {
+  color: var(--dorado);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   NAV — franjas tácticas diagonales
+   ========================================================= */
+nav {
+  background-color: var(--verde-tactico);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(201,162,39,0.12) 0px,
+    rgba(201,162,39,0.12) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+  padding: 0.9rem 5vw;
+  border-bottom: 1px solid rgba(201,162,39,0.3);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+}
+
+nav a {
+  color: var(--gris-claro);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.1rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--cian);
+  border-bottom: 2px solid var(--cian);
+}
+
+/* =========================================================
+   CONTENEDOR — section (2/3) + aside (1/3)
+   ========================================================= */
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 5vw;
+}
+
+/* =========================================================
+   SECTION — panel oscuro con retícula esquemática
+   ========================================================= */
+section {
+  flex: 2 1 500px;
+  background-color: #14170F;
+  background-image:
+    linear-gradient(rgba(56,198,217,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56,198,217,0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  padding: 2.2rem;
+  border: 1px solid var(--verde-tactico);
+  border-radius: 8px;
+}
+
+.marcador {
+  color: var(--dorado);
+  font-size: 1.15rem;
+  margin: 1.2rem 0 0.8rem;
+  border-left: 4px solid var(--rojo);
+  padding-left: 0.6rem;
+  text-transform: uppercase;
+}
+
+article {
+  margin-bottom: 1.8rem;
+}
+
+article .numero {
+  display: inline-block;
+  background-color: var(--rojo);
+  color: var(--gris-claro);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+}
+
+article h3 {
+  font-size: 1.5rem;
+  margin: 0.3rem 0 0.6rem;
+  color: var(--gris-claro);
+  letter-spacing: 0.03em;
+}
+
+article p {
+  color: var(--gris-medio);
+  font-size: 1rem;
+  text-align: justify;
+}
+
+article strong {
+  color: var(--cian);
+}
+
+/* ---- Imagen dentro de la sección ---- */
+figure {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+figure img {
+  width: 130px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+figure img:hover {
+  transform: translateY(-6px) scale(1.04);
+}
+
+figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--gris-medio);
+  font-style: italic;
+}
+
+/* ---- Lista de mapas ---- */
+.lista-mapas {
+  list-style: none;
+  margin-top: 0.8rem;
+}
+
+.lista-mapas li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0.2rem;
+  border-bottom: 1px solid rgba(139,143,130,0.2);
+  color: var(--gris-claro);
+  font-size: 0.98rem;
+}
+
+.lista-mapas .tag {
+  background-color: var(--verde-tactico);
+  color: var(--dorado);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid var(--dorado);
+}
+
+/* =========================================================
+   ASIDE — panel tipo "dossier" con franjas rojas sutiles
+   ========================================================= */
+aside {
+  flex: 1 1 260px;
+  background-color: #16130F;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(179,38,30,0.09) 0px,
+    rgba(179,38,30,0.09) 6px,
+    transparent 6px,
+    transparent 16px
+  );
+
+  padding: 1.8rem;
+  border-radius: 8px;
+  border-top: 4px solid var(--rojo);
+  height: fit-content;
+}
+
+aside h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: var(--gris-claro);
+  text-transform: uppercase;
+}
+
+/* ---- Tabla ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #0F110C;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+thead th {
+  background-color: var(--verde-tactico);
+  color: var(--dorado);
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tbody td {
+  padding: 0.55rem 0.7rem;
+  font-size: 0.88rem;
+  color: var(--gris-claro);
+  border-bottom: 1px solid rgba(139,143,130,0.15);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(56,198,217,0.05);
+}
+
+.nota {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--gris-medio);
+}
+
+/* ---- Enlaces de interés (aside) ---- */
+.enlaces-titulo {
+  font-size: 1rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.7rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(201,162,39,0.25);
+  color: var(--dorado);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lista-enlaces {
+  list-style: none;
+}
+
+.lista-enlaces li {
+  border-bottom: 1px solid rgba(139,143,130,0.15);
+}
+
+.lista-enlaces li:last-child {
+  border-bottom: none;
+}
+
+.lista-enlaces a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.1rem;
+  color: var(--gris-claro);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.lista-enlaces a::before {
+  content: "»";
+  color: var(--cian);
+  font-weight: 700;
+}
+
+.lista-enlaces a:hover {
+  color: var(--cian);
+  padding-left: 0.4rem;
+}
+
+/* =========================================================
+   FOOTER — líneas de escaneo estilo consola
+   ========================================================= */
+footer {
+  background-color: var(--negro);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(56,198,217,0.06) 0px,
+      rgba(56,198,217,0.06) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  color: var(--gris-medio);
+  text-align: center;
+  padding: 1.6rem 5vw;
+  border-top: 3px solid var(--dorado);
+  font-size: 0.82rem;
+}
+
+footer p {
+  margin: 0.2rem 0;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 700px) {
+  .contenedor {
+    flex-direction: column;
+  }
+
+  nav ul {
+    gap: 1.2rem;
+  }
+}
