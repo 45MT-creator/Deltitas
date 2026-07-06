@@ -1,6 +1,3 @@
-/* =========================================================
-   PALETA (hexadecimal y rgba)
-   ========================================================= */
 :root {
   --negro:        #0D0F0C;
   --verde-tactico:#232C1E;
@@ -11,9 +8,6 @@
   --gris-medio:   #8B8F82;
 }
 
-/* =========================================================
-   MODELO DE CAJA GLOBAL
-   ========================================================= */
 * {
   margin: 0;
   padding: 0;
@@ -32,9 +26,6 @@ h1, h2, h3 {
   letter-spacing: 0.04em;
 }
 
-/* =========================================================
-   HEADER — camuflaje simulado con degradados + marco HUD
-   ========================================================= */
 header {
   position: relative;
   background-color: var(--negro);
@@ -102,9 +93,6 @@ header .subtitle {
   text-transform: uppercase;
 }
 
-/* =========================================================
-   NAV — franjas tácticas diagonales
-   ========================================================= */
 nav {
   background-color: var(--verde-tactico);
   background-image: repeating-linear-gradient(
@@ -143,9 +131,6 @@ nav a:hover {
   border-bottom: 2px solid var(--cian);
 }
 
-/* =========================================================
-   CONTENEDOR — section (2/3) + aside (1/3)
-   ========================================================= */
 .contenedor {
   display: flex;
   flex-wrap: wrap;
@@ -155,9 +140,6 @@ nav a:hover {
   padding: 3rem 5vw;
 }
 
-/* =========================================================
-   SECTION — panel oscuro con retícula esquemática
-   ========================================================= */
 section {
   flex: 2 1 500px;
   background-color: #14170F;
@@ -214,7 +196,6 @@ article strong {
   color: var(--cian);
 }
 
-/* ---- Imagen dentro de la sección ---- */
 figure {
   margin-top: 1.2rem;
   text-align: center;
@@ -240,7 +221,6 @@ figcaption {
   font-style: italic;
 }
 
-/* ---- Lista de mapas ---- */
 .lista-mapas {
   list-style: none;
   margin-top: 0.8rem;
@@ -266,9 +246,6 @@ figcaption {
   border: 1px solid var(--dorado);
 }
 
-/* =========================================================
-   ASIDE — panel tipo "dossier" con franjas rojas sutiles
-   ========================================================= */
 aside {
   flex: 1 1 260px;
   background-color: #16130F;
@@ -293,7 +270,6 @@ aside h2 {
   text-transform: uppercase;
 }
 
-/* ---- Tabla ---- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -330,7 +306,6 @@ tbody tr:nth-child(even) {
   color: var(--gris-medio);
 }
 
-/* ---- Enlaces de interés (aside) ---- */
 .enlaces-titulo {
   font-size: 1rem;
   margin-top: 1.6rem;
@@ -376,9 +351,6 @@ tbody tr:nth-child(even) {
   padding-left: 0.4rem;
 }
 
-/* =========================================================
-   FOOTER — líneas de escaneo estilo consola
-   ========================================================= */
 footer {
   background-color: var(--negro);
   background-image:
@@ -401,9 +373,6 @@ footer p {
   margin: 0.2rem 0;
 }
 
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
 @media (max-width: 700px) {
   .contenedor {
     flex-direction: column;
